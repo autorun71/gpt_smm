@@ -17,3 +17,4 @@ Homestead.json
 /.phpunit.result.cache
 Dockerfile
 docker-compose.yml
+*.zip
