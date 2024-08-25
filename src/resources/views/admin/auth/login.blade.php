@@ -16,8 +16,8 @@
                         <form method="POST" action="{{ route('admin.login') }}">
                             @csrf
                             <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" name="email" class="form-control" required autofocus>
+                                <label for="login">Email Address</label>
+                                <input type="login" name="login" class="form-control" required autofocus>
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
