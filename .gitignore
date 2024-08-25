@@ -1,13 +1,13 @@
 
+/local
 /vendor/
 /node_modules/
-/local/.env
 /storage/*.key
 /storage/logs/*.log
 /storage/framework/cache/data/*
 /storage/framework/sessions/*
 /storage/framework/views/*
-/.env
+.env
 .phpunit.result.cache
 Homestead.yaml
 Homestead.json
