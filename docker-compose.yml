@@ -1,0 +1,65 @@
+
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/phpfpm/Dockerfile
+    container_name: laravel_app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./src:/var/www
+      - ./local/logs:/var/www/storage/logs
+      - ./local/.env:/var/www/.env
+    networks:
+      - laravel
+
+  webserver:
+    image: nginx:alpine
+    container_name: laravel_webserver
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/var/www
+      - ./docker/nginx:/etc/nginx/conf.d
+      - ./local/.env:/var/www/.env
+    networks:
+      - laravel
+    depends_on:
+      - app
+
+  postgres:
+    image: postgres:13
+    container_name: laravel_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: laravel
+      POSTGRES_USER: laravel
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - ./local/db:/var/lib/postgresql/data
+      - ./local/logs/postgres:/var/log/postgresql
+      - ./local/.env:/var/www/.env
+    networks:
+      - laravel
+
+  jobs:
+    build:
+      context: .
+      dockerfile: docker/jobs/Dockerfile
+    container_name: laravel_jobs
+    restart: unless-stopped
+    volumes:
+      - ./src:/var/www
+      - ./local/.env:/var/www/.env
+    depends_on:
+      - app
+    networks:
+      - laravel
+
+networks:
+  laravel:
+    driver: bridge
