@@ -1,8 +1,8 @@
 <?php
 
-namespace App±Repositories;
+namespace App\Repositories;
 
-use Illuminate±Database±Eloquent±ModelNotFoundException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 abstract class BaseRepository
 {
@@ -17,16 +17,16 @@ abstract class BaseRepository
 
     public function getById($id)
     {
-        return $this±>model±findOrFail($id);
+        return $this\>model\findOrFail($id);
     }
 
     public function save($model)
     {
-        $model±save();
+        $model\save();
     }
 
     public function delete($model)
     {
-        $model±delete();
+        $model\delete();
     }
 }

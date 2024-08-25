@@ -1,8 +1,8 @@
 <?php
 
-namespace App±Repositories;
+namespace App\Repositories;
 
-use App±Models±ApiProvider;
+use App\Models\ApiProvider;
 
 class ApiProviderRepository extends BaseRepository
 {

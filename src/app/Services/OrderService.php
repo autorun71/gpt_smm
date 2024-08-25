@@ -17,18 +17,18 @@ class OrderService
     public function createOrder(array $data)
     {
         $order = new Order($data);
-        $this->orderRepository\save($order);
+        $this->orderRepository->save($order);
         return $order;
     }
 
     public function updateOrderStatus(Order $order, string $status)
     {
         $order->status = $status;
-        $this->orderRepository\save($order);
+        $this->orderRepository->save($order);
     }
 
     public function deleteOrder(Order $order)
     {
-        $this->orderRepository\delete($order);
+        $this->orderRepository->delete($order);
     }
 }

@@ -1,5 +1,5 @@
 
-FROM php:7.4-cli
+FROM php:8.2-cli
 
 # Set working directory
 WORKDIR /var/www

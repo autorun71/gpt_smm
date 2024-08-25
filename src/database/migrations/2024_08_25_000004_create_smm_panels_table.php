@@ -12,7 +12,7 @@ class CreateSmmPanelsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('api_key');
-            $table->decimal('balance', 15, 2)\default(0);
+            $table->decimal('balance', 15, 2)->default(0);
             $table->string('currency');
             $table->timestamps();
             $table->softDeletes();

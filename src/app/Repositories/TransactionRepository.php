@@ -1,8 +1,8 @@
 <?php
 
-namespace App±Repositories;
+namespace App\Repositories;
 
-use App±Models±Transaction;
+use App\Models\Transaction;
 
 class TransactionRepository extends BaseRepository
 {

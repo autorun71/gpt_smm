@@ -10,8 +10,8 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')\constrained()\onDelete('cascade');
-            $table->foreignId('order_id')\nullable()\constrained()\onDelete('set null');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('order_id')->nullable()->constrained()->onDelete('set null');
             $table->enum('type', ['order', 'order_status', 'replenishment', 'refund', 'pay']);
             $table->enum('status', ['pending', 'completed', 'canceled', 'error']);
             $table->decimal('amount', 15, 2);
