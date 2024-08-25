@@ -12,7 +12,7 @@ class Admin extends Authenticatable
     use HasFactory, Notifiable, SoftDeletes;
 
     protected $fillable = [
-        'name', 'login', 'password',
+        'name', 'login', 'password', 'email'
     ];
 
     protected $hidden = [

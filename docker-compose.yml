@@ -42,6 +42,8 @@ services:
       - ./local/db:/var/lib/postgresql/data
       - ./local/logs/postgres:/var/log/postgresql
       - ./local/.env:/var/www/.env
+    ports:
+      - "15432:5432"
     networks:
       - laravel
 
